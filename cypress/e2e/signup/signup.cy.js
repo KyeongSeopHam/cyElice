@@ -5,7 +5,7 @@ function generateRandomUsername() {
   return `rudtjq${randomPart}@naverr.com`;
 }
 
-//회원가입 페이지 테스트
+//회원가입 페이지 테스트.
 
 describe('회원가입이 정상적으로 되어야 한다.', () => {
   beforeEach(() => {
@@ -74,9 +74,6 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     // [만 14세 이상 일때] ->  (1 보호자 문구 미노출 확인 , 2. 동의하기 버튼 문구 확인)
     cy.get('input[name="adult"]').check();
     cy.get('button[type="submit"]').should('contain', '동의하기');
-
-
-
   });
 
 
@@ -139,8 +136,6 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('button[aria-label="Apple"]').click();
     cy.get('button[aria-label="Whalespace"]').click();
 
-
-
   });
 
 
@@ -192,12 +187,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.url().should('include', '/members/account')
     cy.getCookie('eliceSessionKey').should('exist')
 
-
-
   });
-
-
-
 })
 
 
