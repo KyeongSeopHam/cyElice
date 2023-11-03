@@ -14,12 +14,14 @@ npm install cypress --save-dev # 싸이프레스 설치
 C:\nabi\node_modules\.bin\cypress.ps1 파일을 로드할 수 없습니다.
 
 해결방법 (gpt)
-PowerShell은 기본적으로 스크립트 실행을 제한하는 정책을 가지고 있으며, 이 정책이 설정되어 있을 경우 스크립트 파일을 실행할 수 없습니다.
+PowerShell은 기본적으로 스크립트 실행을 제한하는 정책을 가지고 있으며,
+이 정책이 설정되어 있을 경우 스크립트 파일을 실행할 수 없습니다.
 
-1. PowerShell을 관리자 권한으로 실행합니다. 시작 메뉴에서 "PowerShell"을 검색하고 마우스 오른쪽 버튼을 클릭하여
-"관리자 권한으로 실행"을 선택합니다.
+1. PowerShell을 관리자 권한으로 실행합니다. 시작 메뉴에서 "PowerShell"을 검색하고
+마우스 오른쪽 버튼을 클릭하여 "관리자 권한으로 실행"을 선택합니다.
 
-2. PowerShell 실행 권한 정책을 변경합니다. 다음 명령어를 실행하여 현재 사용자의 실행 권한 정책을 변경합니다
+2. PowerShell 실행 권한 정책을 변경합니다. 다음 명령어를 실행하여
+현재 사용자의 실행 권한 정책을 변경합니다
 
 3. Set-ExecutionPolicy RemoteSigned    // 파워셀 커멘드에 입력
 ```
@@ -86,7 +88,8 @@ describe('', () => {
 ```bash
 1. cypress 폴더: 이 폴더는 Cypress 프로젝트의 루트 폴더입니다.
 
-2. 테스트 파일: 실제 테스트 케이스가 포함된 파일입니다. 예를 들어, "loginPage.cy.js" 또는 "signup.cy.js"와 같은 파일이 여기에 속합니다.
+2. 테스트 파일: 실제 테스트 케이스가 포함된 파일입니다. 예를 들어,
+"loginPage.cy.js" 또는 "signup.cy.js"와 같은 파일이 여기에 속합니다.
 
 3. support 폴더: 보조 파일 및 사용자 지정 명령이 포함됩니다.
 
@@ -101,3 +104,5 @@ describe('', () => {
 
    Node.js 패키지 관리자(NPM 또는 Yarn)에 의해 자동으로 생성됩니다.
 ```
+
+![파일구조](https://github.com/KyeongSeopHam/cyElice/assets/43702182/c6c49290-a29c-41e0-b62b-8a3b0457ca4a)
