@@ -127,14 +127,8 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
 
     cy.contains("더보기").click();
 
-    //추가 SNS 회원가입 6종
-    cy.get('button[aria-label="Microsoft"]').click();
-    cy.get('button[aria-label="Facebook"]').click();
-    cy.get('button[aria-label="Naver"]').click();
-
-    cy.get('button[aria-label="Github"]').click();
-    cy.get('button[aria-label="Apple"]').click();
-    cy.get('button[aria-label="Whalespace"]').click();
+    // 추가 SNS 로그인 6종 [함수화]
+    cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
   });
 
