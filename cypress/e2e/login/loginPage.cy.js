@@ -36,13 +36,8 @@ describe('앱 로드가 정상적으로 되어야 한다.', () => {
 
     cy.contains("더보기").click();
 
-    // 추가 SNS 로그인 6종
-    cy.get('button[aria-label="Microsoft"]').click();
-    cy.get('button[aria-label="Facebook"]').click();
-    cy.get('button[aria-label="Naver"]').click();
-    cy.get('button[aria-label="Github"]').click();
-    cy.get('button[aria-label="Apple"]').click();
-    cy.get('button[aria-label="Whalespace"]').click();
+    // 추가 SNS 로그인 6종 [함수화]
+    cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
 
     cy.contains("접기").click();
@@ -67,5 +62,6 @@ describe('앱 로드가 정상적으로 되어야 한다.', () => {
     cy.login('rudtjq9300@naverr.com', 'asdasda52#!%^^') // 엘리스 자체 id,pw 입력  [테스트아이디생성]
     cy.url().should('include', '/members/account')
     cy.getCookie('eliceSessionKey').should('exist')
+  
   })
 })
