@@ -106,3 +106,25 @@ describe('', () => {
 ```
 
 ![파일구조](https://github.com/KyeongSeopHam/cyElice/assets/43702182/c6c49290-a29c-41e0-b62b-8a3b0457ca4a)
+
+
+## 🐱 시연1 [앱 로드가 정상적으로 되어야 한다.] loginPage.cy.js
+![image](https://github.com/KyeongSeopHam/cyElice/assets/43702182/401aabe1-4b26-4bca-adb4-a1932478dfef)
+
+
+https://github.com/KyeongSeopHam/cyElice/assets/43702182/ef54baf1-74c8-40ba-921f-d1d50669539c
+
+
+## 🐱 시연2 [회원가입이 정상적으로 되어야 한다.] Signup.cy.js
+
+![image](https://github.com/KyeongSeopHam/cyElice/assets/43702182/29d973d0-5489-456f-868c-d9c43cfb95cb)
+
+https://github.com/KyeongSeopHam/cyElice/assets/43702182/6f73eacd-4d97-4b0f-99fa-5c36cb932d83
+
+
+
+
+
+
+
+
