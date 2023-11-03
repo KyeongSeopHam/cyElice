@@ -40,3 +40,15 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   // 회원가입 클릭
   cy.contains('회원가입').click();
 });
+
+
+// [Footer] 페이지 언어 선택 전환 컴포넌트 검증 -> 추후 확장성 언어추가 고려
+Cypress.Commands.add('languageSwitchTest', (defaultLang, targetLang, targetText1,targetText2) => {
+  cy.get('select').should('have.value', defaultLang);  // select엘리멘트에서 에트리뷰트값 확인('ko') 
+
+  cy.get('select').select(targetLang);
+  cy.contains(targetText1).should('be.visible');
+
+  cy.get('select').select(defaultLang);
+  cy.contains(targetText2).should('be.visible');
+});
