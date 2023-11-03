@@ -1,10 +1,5 @@
 {
-  "name": "clear",
-  "version": "1.0.0",
-  "description": "",
-  "main": "clear",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open"
   },
   "author": "",
