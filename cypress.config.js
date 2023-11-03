@@ -1,7 +1,8 @@
 const { defineConfig } = require("cypress");
-
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://accounts.elice.io/',  
+    baseUrl: 'https://accounts.elice.io/',
+    supportFile: false,
   },
-});
+  },
+);
