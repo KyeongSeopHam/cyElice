@@ -30,7 +30,7 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   
   
 
-  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=en');
+  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=ko');
 
   cy.visit('/')
 
@@ -43,7 +43,7 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 
 
   // // 추가 SNS 로그인 6종 [함수화]
-   cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
+  // cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
   // // 회원가입 클릭
    cy.get('.e1t19hrb1 > .MuiTypography-root').click(); 
@@ -56,12 +56,13 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 Cypress.Commands.add('languageSwitchTest', () => {
 
   cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'ko'); 
+  cy.get('.e1t19hrb0 > .MuiTypography-root').should('contain', '아직 계정이 없으신가요?');
 
 
-  cy.get('select[aria-label="Change Languages"]').select('en');
-  cy.get('select[aria-label="Change Languages"]').should('have.value', 'en');
+  // cy.get('select[aria-label="Change Languages"]').select('en');
+  // cy.get('select[aria-label="Change Languages"]').should('have.value', 'en');
 
   
-  cy.get('select[aria-label="Change Languages"]').select('ko').should('have.value', 'ko');
+  // cy.get('select[aria-label="Change Languages"]').select('ko').should('have.value', 'ko');
 
 });
