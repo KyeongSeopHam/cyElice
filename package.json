@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
