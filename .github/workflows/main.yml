@@ -25,3 +25,23 @@ jobs:
       - run: npm install    
       - run: npm ci
       - run: npm test
+
+      name: Cypress Tests
+
+
+
+jobs:
+  Cypress:
+    steps:
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v6
+        with:
+          runTests: false
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          if-no-files-found: error
+          path: dist
