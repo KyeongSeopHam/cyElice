@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "cy:open": "cypress open"
+    "cypress": "cypress open"
   },
   "author": "",
   "license": "ISC",
