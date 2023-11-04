@@ -30,9 +30,8 @@ jobs:
         
       - name: Install and Run Cypress E2E Tests
         run: |
-          npm install cypress
+          npm install
           npx cypress install
           npx cypress run
-         
-          
+      
 

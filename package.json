@@ -3,14 +3,15 @@
     "build": "rollup -c",
     "start": "http-server",
     "test" : "cypress run",
-    "baseUrl": "http://localhost:3000", 
-    "browser": "chrome",
     "cy:open": "cypress open"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cypress": "^13.3.0"
+  },
+  "cypress": {
+    "baseUrl": "http://localhost:3000",
+    "chromeWebSecurity": false
   }
 }
-
