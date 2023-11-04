@@ -23,16 +23,21 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        
 
       - name: Run Unit Tests
         run: npm test
         
+        
+     
+        
 
       - name: Install and Run Cypress E2E Tests
         run: |
+          browser: chrome
           npm install cypress
           npx cypress install
           npx cypress run
-          browser: chrome
+          
           
 
