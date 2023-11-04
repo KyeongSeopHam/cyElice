@@ -12,16 +12,15 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       
-      - name: Cypress run
+      - name: Run Cypress Tests
         uses: cypress-io/github-action@v6
         with:
-         build: npm run build
-         start: npm start
-         browser: chrome
-         record: false
-         publish-summary: true
-         component: false
-
+          build: build
+          start: npm start
+          browser: chrome
+          record: false
+          publish-summary: true
+          component: false
 
 
 
