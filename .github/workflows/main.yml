@@ -1,4 +1,5 @@
 name: Cypress CI/CD
+
 on:
   push:
     branches:
@@ -24,14 +25,10 @@ jobs:
         run: npm install
 
       - name: Run Unit Tests
-      
         run: npm test
-        
-        
+
       - name: Install and Run Cypress E2E Tests
         run: |
           npm install
           npx cypress install
-          npx cypress run
-      
-
+          npx cypress run --browser chrome
