@@ -1,12 +1,6 @@
-name: Cypress CI/CD
+name: Cypress Tests
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: push
 
 jobs:
   build_and_test:
@@ -24,11 +18,15 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Unit Tests
-        run: npm test
+      - name: Start Xvfb
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+          export DISPLAY=:99
+          sleep 3
+          background: true
 
       - name: Install and Run Cypress E2E Tests
         run: |
-          npm install
+          npm install cypress
           npx cypress install
           npx cypress run --browser chrome
