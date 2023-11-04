@@ -14,8 +14,7 @@ jobs:
           cache: 'npm'
           browser: chrome
 
+      
 
-      - run: npm install    
-      - run: npm ci
-      - run: npm start
+     
        
