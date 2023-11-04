@@ -1,4 +1,5 @@
 {
+  
   "scripts": {
     "cy:open": "cypress open",
     "build": "webpack"
@@ -9,3 +10,4 @@
     "cypress": "^13.3.0"
   }
 }
+
