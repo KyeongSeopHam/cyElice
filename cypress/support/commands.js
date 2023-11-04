@@ -56,7 +56,8 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 Cypress.Commands.add('languageSwitchTest', () => {
 
   cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'en'); 
-  cy.get('.e1t19hrb0 > .MuiTypography-root').should('contain',"'Don't have an account yet?");
+  cy.get('.e1t19hrb0 > .MuiTypography-root').should('have.text', "Don't have an account yet?");
+
   //cy.get('.e1t19hrb0 > .MuiTypography-root').should('contain', '아직 계정이 없으신가요?');
 
 
