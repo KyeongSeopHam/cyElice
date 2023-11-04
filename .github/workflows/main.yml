@@ -33,14 +33,3 @@ jobs:
           npx cypress install
           npx cypress run
 
-      - name: Upload Test Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-results
-          path: cypress/videos/
-
-      - name: Save Cypress Screenshots
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots/
