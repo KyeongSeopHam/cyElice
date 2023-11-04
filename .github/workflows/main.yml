@@ -18,7 +18,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
-          export CYPRESS_INSTALL_BINARY=^13.3.0
+          export CYPRESS_INSTALL_BINARY=13.3.0
           npm install cypress
 
       - name: Install and Run Cypress E2E Tests
