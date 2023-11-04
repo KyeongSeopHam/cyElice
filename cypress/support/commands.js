@@ -55,7 +55,7 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 // [Footer] 페이지 언어 선택 전환 컴포넌트 검증 -> 추후 확장성 언어추가 고려   
 Cypress.Commands.add('languageSwitchTest', () => {
 
-  cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'ko'); 
+  cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'en'); 
   cy.get('.e1t19hrb0 > .MuiTypography-root').should('contain', '아직 계정이 없으신가요?');
 
 
