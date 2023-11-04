@@ -28,10 +28,6 @@ jobs:
       - name: Run Unit Tests
         run: npm test
         
-        
-     
-        
-
       - name: Install and Run Cypress E2E Tests
         run: |
           browser: chrome
