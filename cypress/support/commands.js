@@ -30,7 +30,7 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   
   
 
-  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=en');
+  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=ko');
 
   cy.visit('/')
 
@@ -51,14 +51,16 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 });
 
 
-// [Footer] 페이지 언어 선택 전환 컴포넌트 검증 -> 추후 확장성 언어추가 고려    파라미터값('ko', 'English', 'Login','로그인')
-Cypress.Commands.add('languageSwitchTest', (defaultLang, targetLang, targetText1,targetText2) => {
+// [Footer] 페이지 언어 선택 전환 컴포넌트 검증 -> 추후 확장성 언어추가 고려   
+Cypress.Commands.add('languageSwitchTest', () => {
 
-  //cy.get('select').should('have.value', defaultLang);  // select엘리멘트에서 에트리뷰트값 확인('ko') 
-  cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'ko'); // 현재 선택된 값이 'ko'인지 확인
-  // cy.get('select').select(targetLang);
-  // cy.contains(targetText1).should('be.visible');
+  cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'en'); // 현재 선택된 값이 'ko'인지 확인
 
-  // cy.get('select').select(defaultLang);
-  // cy.contains(targetText2).should('be.visible');
+
+  cy.get('select[aria-label="Change Languages"]').select('en');
+  cy.get('select[aria-label="Change Languages"]').should('have.value', 'en');
+
+  
+  cy.get('select[aria-label="Change Languages"]').select('ko').should('have.value', 'ko');
+
 });
