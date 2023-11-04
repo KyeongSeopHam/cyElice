@@ -15,12 +15,13 @@ jobs:
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v6
         with:
-          build: build
-          start: npm start
-          browser: chrome
-          record: false
-          publish-summary: true
-          component: false
+         build: webpack
+         start: npm start
+         browser: chrome
+         record: false
+         publish-summary: true
+         component: false
+     
 
 
 
