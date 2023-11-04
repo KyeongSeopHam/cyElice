@@ -35,16 +35,16 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   cy.visit('/')
 
   cy.get('button[type="submit"]').should('be.visible')
-  ////  cy.get('button[type="button"]').contains("카카오로 로그인").should('be.visible')
+
+ //cy.get('button[type="button"]').contains("카카오로 로그인").should('be.visible')
 
   cy.get('[aria-label="Kakao"] > .MuiTypography-root').should('be.visible')
+  cy.get('[aria-label="Google"] > .MuiTypography-root').should('be.visible')
+  cy.get('.css-1n4x2a0 > .MuiTypography-root').should('be.visible').click();
 
-  // cy.get('button[type="button"]').contains("구글로 로그인").should('be.visible')
-
-  // cy.contains("더보기").click();
 
   // // 추가 SNS 로그인 6종 [함수화]
-  // cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
+   cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
   // // 회원가입 클릭
   // cy.contains('회원가입').click();
