@@ -1,8 +1,5 @@
 {
   "scripts": {
-    "build": "rollup -c",
-    "start": "http-server",
-    "test" : "cypress run",
     "cy:open": "cypress open"
   },
   "author": "",
