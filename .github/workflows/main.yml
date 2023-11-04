@@ -18,11 +18,9 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
-          export CYPRESS_INSTALL_BINARY=13.3.0
+          echo 'export CYPRESS_INSTALL_BINARY=13.4.0' >> $GITHUB_ENV
           npm install cypress
 
-      - name: Install and Run Cypress E2E Tests
+      - name: Run Cypress E2E Tests
         run: |
-          npx cypress install
           npx cypress run --browser chrome
-
