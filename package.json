@@ -3,6 +3,8 @@
     "build": "rollup -c",
     "start": "http-server",
     "test" : "cypress run",
+    "baseUrl": "http://localhost:3000", 
+    "browser": "chrome",
     "cy:open": "cypress open"
   },
   "author": "",
