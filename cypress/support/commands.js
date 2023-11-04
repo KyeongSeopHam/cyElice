@@ -30,7 +30,7 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   
   
 
-  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=ko');
+  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=en');
 
   cy.visit('/')
 
