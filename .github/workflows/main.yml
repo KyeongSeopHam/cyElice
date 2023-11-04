@@ -1,7 +1,8 @@
 name: Cypress Tests
 
-on: push
-
+on: 
+  schedule:
+    - cron: '0 0 * * *' # 매일 자정에 실행하도록 설정
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
