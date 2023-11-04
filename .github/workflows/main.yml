@@ -1,38 +1,66 @@
-name: Cypress CI/CD
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+name: Cypress Tests
+
+on: push
 
 jobs:
-  build_and_test:
-    runs-on: ubuntu-latest
-
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v4
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
         with:
-          node-version: '14.x'
+          build: npm run build
+          start: npm start
+          browser: chrome
 
-      - name: Install Dependencies
-        run: npm install
 
-      - name: Run Unit Tests
-        run: npm test
+
+
+
+
+
+
+
+
+# name: Cypress CI/CD
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+#   build_and_test:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '14.x'
+
+#       - name: Install Dependencies
+#         run: npm install
+
+#       - name: Run Unit Tests
+#         run: npm test
         
 
-      - name: Install and Run Cypress E2E Tests
-        run: |
-          npm install cypress
-          npx cypress install
-          npx cypress run
-          browser: chrome
+#       - name: Install and Run Cypress E2E Tests
+#         run: |
+#           npm install cypress
+#           npx cypress install
+#           npx cypress run
+#           browser: chrome
           
 
