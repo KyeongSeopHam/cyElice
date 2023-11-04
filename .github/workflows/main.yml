@@ -25,7 +25,7 @@ jobs:
       - run: npm install    
       - run: npm ci
       - run: npm test
-      
+
         name: Cypress Tests1
 
       - name: Checkout
@@ -34,5 +34,5 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          start: npm start
+          start: cypress --save-dev
           browser: chrome
