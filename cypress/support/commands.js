@@ -34,8 +34,11 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 
   cy.visit('/')
 
-  // cy.get('button[type="submit"]').should('be.visible')
-  // cy.get('button[type="button"]').contains("카카오로 로그인").should('be.visible')
+  cy.get('button[type="submit"]').should('be.visible')
+  ////  cy.get('button[type="button"]').contains("카카오로 로그인").should('be.visible')
+
+  cy.get('[aria-label="Kakao"] > .MuiTypography-root').should('be.visible')
+
   // cy.get('button[type="button"]').contains("구글로 로그인").should('be.visible')
 
   // cy.contains("더보기").click();
