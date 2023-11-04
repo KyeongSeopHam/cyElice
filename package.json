@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "build": "npm run build"
   },
   "author": "",
   "license": "ISC",
