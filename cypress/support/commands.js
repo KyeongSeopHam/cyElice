@@ -30,7 +30,7 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   
   
 
-  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=ko');
+  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=en');
 
   cy.visit('/')
 
@@ -58,7 +58,8 @@ Cypress.Commands.add('languageSwitchTest', () => {
   cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'en'); 
   cy.get('.e1t19hrb0 > .MuiTypography-root').should('have.text', "Don't have an account yet?");
 
-  //cy.get('.e1t19hrb0 > .MuiTypography-root').should('contain', '아직 계정이 없으신가요?');
+  //cy.get('.e1t19hrb0 > .MuiTypography-root').should('have.text', "아직 계정이 없으신가요?");
+
 
 
   // cy.get('select[aria-label="Change Languages"]').select('en');
