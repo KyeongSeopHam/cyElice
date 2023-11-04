@@ -23,7 +23,9 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   cy.get('input[name="loginId"]').should('be.visible')
   cy.get('input[name="password"]').should('be.visible')
 
-  cy.contains('비밀번호를 잊어버리셨나요?').should('be.visible', { timeout: 10000 });
+  // cy.contains('비밀번호를 잊어버리셨나요?').should('be.visible', { timeout: 10000 });
+  cy.get('a.MuiLink-root[href="/accounts/recover/password/find?continue_to=https%3A%2F%2Felice.io%2Fuser%2Fprofile&amp;lang=ko"]').should('contain', '비밀번호를 잊어버리셨나요?');
+
 
 
   cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=ko');
