@@ -52,9 +52,3 @@ Cypress.Commands.add('languageSwitchTest', (defaultLang, targetLang, targetText1
   cy.get('select').select(defaultLang);
   cy.contains(targetText2).should('be.visible');
 });
-
-module.exports = {
-
-
-  mode: 'development'
-};
