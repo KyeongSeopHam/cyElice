@@ -1,4 +1,4 @@
-name: Cypress Tests with Dependency and Artifact Caching
+name: Cypress Tests
 
 on: push
 
@@ -21,7 +21,7 @@ jobs:
         with:
           name: build
           if-no-files-found: error
-          path: build
+          path: dist
 
   cypress-run:
     runs-on: ubuntu-22.04
