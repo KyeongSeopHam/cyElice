@@ -23,11 +23,8 @@ jobs:
           if-no-files-found: error
           path: dist
           
-      - name: Delete node_modules
-        run: rm -rf node_modules
-      - run: npm install    
-      - run: npm ci
-      - run: npm test
+  
+  
 
 
   cypress-run:
@@ -42,6 +39,14 @@ jobs:
         with:
           name: build
           path: build
+
+      - name: Delete node_modules
+        run: rm -rf node_modules
+      - run: npm install 
+      - run: npm ci
+      - run: npm test
+
+
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
