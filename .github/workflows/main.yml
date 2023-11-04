@@ -18,6 +18,9 @@ jobs:
          build: npm run build
          start: npm start
          browser: chrome
+         record: false
+         publish-summary: true
+         component: false
 
 
 
