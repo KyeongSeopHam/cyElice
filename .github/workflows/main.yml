@@ -16,11 +16,13 @@ jobs:
           node-version: '14.x'
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          npm install
+          export CYPRESS_INSTALL_BINARY=^13.3.0
+          npm install cypress
 
       - name: Install and Run Cypress E2E Tests
         run: |
-          npm install cypress
           npx cypress install
-          npm install
           npx cypress run --browser chrome
+
