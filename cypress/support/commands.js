@@ -55,7 +55,7 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 // [Footer] 페이지 언어 선택 전환 컴포넌트 검증 -> 추후 확장성 언어추가 고려   
 Cypress.Commands.add('languageSwitchTest', () => {
 
-  cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'en'); // 현재 선택된 값이 'ko'인지 확인
+  cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'ko'); 
 
 
   cy.get('select[aria-label="Change Languages"]').select('en');
