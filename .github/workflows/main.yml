@@ -1,4 +1,4 @@
-name: Example CI
+name: Cypress CI/CD
 
 on:
   push:
@@ -24,12 +24,23 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Cypress Tests
+      - name: Run Unit Tests
         run: npm test
 
-      - name: Cypress E2E Tests
-        uses: cypress-io/github-action@v2
+      - name: Install and Run Cypress E2E Tests
+        run: |
+          npm install cypress
+          npx cypress install
+          npx cypress run
+
+      - name: Upload Test Artifacts
+        uses: actions/upload-artifact@v2
         with:
-          start: npm start
-          config-file: cypress.config.js
-          browser: chrome
+          name: cypress-results
+          path: cypress/videos/
+
+      - name: Save Cypress Screenshots
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots/
