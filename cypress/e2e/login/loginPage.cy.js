@@ -20,11 +20,11 @@ describe('앱 로드가 정상적으로 되어야 한다.', () => {
   })
 
 
-  // it('한/영 변환 테스트 확인 (footer 에 한영변환 UI 가 존재함)', () => {
+   it('한/영 변환 테스트 확인 (footer 에 한영변환 UI 가 존재함)', () => {
 
      cy.languageSwitchTest('ko', 'English', 'Login','로그인');
 
-  // });
+   });
 
 
   // it('로그인 후 account 설정페이지로 이동 확인', () => {

@@ -51,7 +51,7 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 });
 
 
-// [Footer] 페이지 언어 선택 전환 컴포넌트 검증 -> 추후 확장성 언어추가 고려
+// [Footer] 페이지 언어 선택 전환 컴포넌트 검증 -> 추후 확장성 언어추가 고려    파라미터값('ko', 'English', 'Login','로그인')
 Cypress.Commands.add('languageSwitchTest', (defaultLang, targetLang, targetText1,targetText2) => {
   cy.get('select').should('have.value', defaultLang);  // select엘리멘트에서 에트리뷰트값 확인('ko') 
 
