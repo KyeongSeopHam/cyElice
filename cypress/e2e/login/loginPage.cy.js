@@ -14,7 +14,7 @@ describe('앱 로드가 정상적으로 되어야 한다.', () => {
 
 
   it('페이지 로드, 기본 요소 랜더딩 확인 ', () => {
-    cy.wait(10000)
+
     cy.checkPageLoadAndComponents(); // 페이지 로딩 및 컴포넌트 확인 
     cy.visit('/')
   })

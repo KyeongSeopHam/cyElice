@@ -17,7 +17,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
   })
 
   it('회원 가입 페이지 로드, 기본 요소 랜더딩 확인 [체크박스 상태별 노출 확인] ', () => {
-    cy.wait(10000)
+
 
 
     // 체크박스 선택 및 해제 확인
@@ -28,25 +28,25 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="adult"]').should('be.checked');
     cy.get('input[name="adult"]').click();
     cy.get('input[name="adult"]').should('not.be.checked');
-    cy.wait(10000)
+
     // 이용약관 동의(필수) 체크박스
     cy.get('input[name="termsOfServices"]').click();
     cy.get('input[name="termsOfServices"]').should('be.checked');
     cy.get('input[name="termsOfServices"]').click();
     cy.get('input[name="termsOfServices"]').should('not.be.checked');
-    cy.wait(10000)
+
     // 개인정보 관련 체크박스
     cy.get('input[name="privacyPolicy"]').click();
     cy.get('input[name="privacyPolicy"]').should('be.checked');
     cy.get('input[name="privacyPolicy"]').click();
     cy.get('input[name="privacyPolicy"]').should('not.be.checked');
-    cy.wait(10000)
+
     // 광고 전송 동의 체크박스
     cy.get('input[name="promotion"]').click();
     cy.get('input[name="promotion"]').should('be.checked');
     cy.get('input[name="promotion"]').click();
     cy.get('input[name="promotion"]').should('not.be.checked');
-    cy.wait(10000)
+
     // 전부체크
     cy.get('input[name="adult"]').click();
     cy.get('input[name="adult"]').should('be.checked');
@@ -57,11 +57,11 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="promotion"]').click();
     cy.get('input[name="promotion"]').should('be.checked');
 
-    cy.wait(10000)
+
     cy.get('input[type="checkbox"]:checked').each(($checkbox) => {
       cy.wrap($checkbox).uncheck();
     });
-    cy.wait(10000)
+
     // [만 14세 미만 일때] -> (1.보호자 문구 확인, 2. 보호자동의하기 버튼문구확인 )
     cy.get('input[name="adult"]').should('not.be.checked');
     cy.get('input[name="termsOfServices"]').check();
@@ -70,13 +70,13 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="adult"]').should('not.be.checked');
     cy.get('button[type="submit"]').should('contain', '보호자 동의하기');
 
-    cy.wait(10000)
+
     // [만 14세 이상 일때] ->  (1 보호자 문구 미노출 확인 , 2. 동의하기 버튼 문구 확인)
     cy.get('input[name="adult"]').check();
     cy.get('button[type="submit"]').should('contain', '동의하기');
   });
 
-  cy.wait(10000)
+
   it('필수 약관 노출 확인 [이용약관 동의(필수)] , [개인정보 수집 및 이용에 관한 동의(필수)]', () => {
     cy.get('.MuiButtonBase-root').first().trigger('mouseover');
     // [자세히] 글씨가 노출 확인
@@ -95,7 +95,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('.imp-close').click();
 
   });
-  cy.wait(10000)
+
 
   it('만 14세 이상 [동의하기] 회원가입 페이지 노출 확인 ', () => {
     cy.get('input[name="adult"]').check();
