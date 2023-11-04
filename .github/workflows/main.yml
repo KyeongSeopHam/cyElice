@@ -2,37 +2,33 @@ name: Example CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
-  install_Setup:
+  build_and_test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup node.js 14.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14.x
-          cache: 'npm'
-
-      - name: Delete node_modules
-        run: rm -rf node_modules
-
-      - name: Clear npm cache
-        run: npm cache clean --force
-      - run: npm install    
-      - run: npm ci
-      - run: npm test
-
-        name: Cypress Tests1
-
       - name: Checkout
-        uses: actions/checkout@v4
-        
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          start: cypress --save-dev
-          browser: chrome
+          node-version: '14.x'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cypress Tests
+        run: npm test
+
+      - name: Cypress E2E Tests
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
+          brower: chrom
