@@ -55,17 +55,14 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 // [Footer] 페이지 언어 선택 전환 컴포넌트 검증 -> 추후 확장성 언어추가 고려   
 Cypress.Commands.add('languageSwitchTest', () => {
 
-  cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'en'); 
-  cy.get('.e1t19hrb0 > .MuiTypography-root').should('have.text', "Don't have an account yet?");
-
-  //cy.get('.e1t19hrb0 > .MuiTypography-root').should('have.text', "아직 계정이 없으신가요?");
 
 
+  cy.get('select[aria-label="Change Languages"]').select('en');
+  cy.get('.e1t19hrb0').should('have.text', "Don\'t have an account yet?Sign up");
+  cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'en');  // 현재요소가 영어인지 확인
 
-  // cy.get('select[aria-label="Change Languages"]').select('en');
-  // cy.get('select[aria-label="Change Languages"]').should('have.value', 'en');
-
-  
-  // cy.get('select[aria-label="Change Languages"]').select('ko').should('have.value', 'ko');
+  cy.get('select[aria-label="Change Languages"]').select('ko');
+  cy.get('.e1t19hrb1').should('have.text', "아직 계정이 없으신가요?회원가입");
+  cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'ko'); // 현재요소가 한글인지 확인
 
 });
