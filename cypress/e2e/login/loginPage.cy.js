@@ -27,10 +27,10 @@ describe('앱 로드가 정상적으로 되어야 한다.', () => {
    });
 
 
-  // it('로그인 후 account 설정페이지로 이동 확인', () => {
-  //   cy.login('rudtjq9300@naverr.com', 'asdasda52#!%^^') // 엘리스 자체 id,pw 입력  [테스트아이디생성]
-  //   cy.url().should('include', '/members/account')
-  //   cy.getCookie('eliceSessionKey').should('exist')
+  it('로그인 후 account 설정페이지로 이동 확인', () => {
+    cy.login('rudtjq9300@naverr.com', 'asdasda52#!%^^') // 엘리스 자체 id,pw 입력  [테스트아이디생성]
+    cy.url().should('include', '/members/account')
+    cy.getCookie('eliceSessionKey').should('exist')
   
-  // })
+  })
 })

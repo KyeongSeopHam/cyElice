@@ -42,10 +42,10 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   cy.get('.css-1n4x2a0 > .MuiTypography-root').should('be.visible').click(); // 더보기 영역 [추가 SNS 로그인 6종]
 
 
-  // // 추가 SNS 로그인 6종 [함수화]
-  // cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
+  //  추가 SNS 로그인 6종 [함수화]
+   cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
-  // // 회원가입 클릭
+  //  회원가입 클릭
    cy.get('.e1t19hrb1 > .MuiTypography-root').click(); 
   
 
