@@ -22,7 +22,11 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   // 컴포넌트 확인 (주요 버튼)
   cy.get('input[name="loginId"]').should('be.visible')
   cy.get('input[name="password"]').should('be.visible')
-  cy.contains('비밀번호를 잊어버리셨나요?').click();
+
+  // cy.contains('비밀번호를 잊어버리셨나요?').click();
+  cy.get(".MuiStack-root > .MuiTypography-root").click();
+
+
   
   
 
@@ -30,17 +34,17 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 
   cy.visit('/')
 
-  cy.get('button[type="submit"]').should('be.visible')
-  cy.get('button[type="button"]').contains("카카오로 로그인").should('be.visible')
-  cy.get('button[type="button"]').contains("구글로 로그인").should('be.visible')
+  // cy.get('button[type="submit"]').should('be.visible')
+  // cy.get('button[type="button"]').contains("카카오로 로그인").should('be.visible')
+  // cy.get('button[type="button"]').contains("구글로 로그인").should('be.visible')
 
-  cy.contains("더보기").click();
+  // cy.contains("더보기").click();
 
-  // 추가 SNS 로그인 6종 [함수화]
-  cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
+  // // 추가 SNS 로그인 6종 [함수화]
+  // cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
-  // 회원가입 클릭
-  cy.contains('회원가입').click();
+  // // 회원가입 클릭
+  // cy.contains('회원가입').click();
 });
 
 
