@@ -59,17 +59,17 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="promotion"]').should('be.checked');
 
 
-//     cy.get('input[type="checkbox"]:checked').each(($checkbox) => {
-//       cy.wrap($checkbox).uncheck();
-//     });
+    cy.get('input[type="checkbox"]:checked').each(($checkbox) => {
+      cy.wrap($checkbox).uncheck();
+    });
 
-//     // [만 14세 미만 일때] -> (1.보호자 문구 확인, 2. 보호자동의하기 버튼문구확인 )
-//     cy.get('input[name="adult"]').should('not.be.checked');
-//     cy.get('input[name="termsOfServices"]').check();
-//     cy.get('input[name="privacyPolicy"]').check();
-//     cy.get('span.MuiTypography-caption').should('be.visible');
-//     cy.get('input[name="adult"]').should('not.be.checked');
-//     cy.get('.MuiButtonBase-root').should('have.text', '보호자 동의하기');
+    // [만 14세 미만 일때] -> (1.보호자 문구 확인, 2. 보호자동의하기 버튼문구확인 )
+    cy.get('input[name="adult"]').should('not.be.checked');
+    cy.get('input[name="termsOfServices"]').check();
+    cy.get('input[name="privacyPolicy"]').check();
+    cy.get('span.MuiTypography-caption').should('be.visible');
+    cy.get('input[name="adult"]').should('not.be.checked');
+    cy.get('.MuiButtonBase-root').should('have.text', '보호자 동의하기');
 
 
 //     //[만 14세 이상 일때] ->  (1 보호자 문구 미노출 확인 , 2. 동의하기 버튼 문구 확인)
