@@ -80,7 +80,8 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     // [자세히] 글씨가 노출 확인
     cy.get('button[aria-label="자세히"]').should('be.visible');
     cy.get(':nth-child(2) > .MuiIconButton-root').click();
-    cy.get('.css-odfdx9 button[type="button"]').should('be.visible').click();
+    cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click();
+    
    // cy.get('button[type="button"]').contains('닫기').click();  // 얘는되네? 
   //  cy.get(':nth-child(3) > .MuiIconButton-root').click();
   //  cy.get('.css-odfdx9 button[type="button"]').click();      //  .contains('닫기') ?
