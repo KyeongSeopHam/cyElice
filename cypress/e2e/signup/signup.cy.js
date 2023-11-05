@@ -173,14 +173,12 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
 
 
      cy.get('input[name="password"]').type('weak'); // 유효하지 않은 비밀번호 입력
-
-    //  cy.wait(5000)   왜안되징
-    //  cy.get('.css-96owzn .MuiFormHelperText-root')
-    //  .should('be.visible')
-    //  .invoke('text')
-    //  .should('include', '비밀번호를 더 강력하게 만들어주세요! 영문, 숫자, 특수문자를 포함해 8자 이상으로 조합해보세요.');
+     
+     cy.get('.css-96owzn.MuiFormHelperText-root')
+       .should('be.visible').invoke('text')
+       .should('include',"비밀번호를 더 강력하게 만들어주세요! 영문, 숫자, 특수문자를 포함해 8자 이상으로 조합해보세요.");
     
-   
+
 
 
      cy.get('input[name="password"]').clear();
@@ -188,14 +186,9 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="password"]').type('asdasda52#!%^^'); // 유효한 비밀번호 입력 1차 
     cy.get('input[name="confirmPassword"]').should('exist'); // 비밀번호 재확인 필드 노출 확인 
     cy.get('input[name="confirmPassword"]').type('asdasdasd@$2#$');
-    cy.get('#mui-13-helper-text').should('be.visible').should('have.text',"비밀번호가 일치하지 않습니다."); // ???????
+    cy.get('#mui-13-helper-text').should('be.visible').should('have.text',"비밀번호가 일치하지 않습니다."); // ??????? #mui-13-helper-text
 
    
-
-
-
-
-
     cy.get('input[name="confirmPassword"]').clear();
     cy.get('input[name="confirmPassword"]').type('asdasda52#!%^^');
     cy.get('button[aria-label="비밀번호 보기"]').click(); // 비밀번호 보기 버튼 클릭
