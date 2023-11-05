@@ -92,7 +92,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="termsOfServices"]').check();
     cy.get('input[name="privacyPolicy"]').check();
     cy.get('.MuiButton-root').should('have.text', "보호자 동의하기").click();
-    cy.get('.imp-close').click(); // PASS 인증창  닫기
+    cy.get('.imp-header > .imp-close').click(); // PASS 인증창  닫기
 
   });
 
