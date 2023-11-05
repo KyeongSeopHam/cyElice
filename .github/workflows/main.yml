@@ -1,7 +1,7 @@
 name: Cypress Tests
 
 on:
-  push: 
+  push:
   schedule:
     - cron: '0 0 * * *' # 매일 자정에 실행하도록 설정
 
@@ -9,17 +9,14 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
 
-    env:  # 환경 변수 설정
-      lang: ko_KR.UTF-8
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Set locale to ko_KR
         run: |
-          sudo locale-gen ${{ env.lang }}
-          export LC_ALL=${{ env.lang }}
+          sudo locale-gen ko_KR.UTF-8
+          export LC_ALL="ko_KR.UTF-8"
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -35,3 +32,7 @@ jobs:
       - name: Run Cypress E2E Tests
         run: |
           npx cypress run --browser chrome
+
+      - name: Restore locale
+        run: |
+          export LC_ALL="C.UTF-8"
