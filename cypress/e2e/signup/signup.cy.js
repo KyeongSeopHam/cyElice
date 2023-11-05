@@ -199,7 +199,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="loginId"]').type(generateRandomUsername()); // 난수로 계정 생성
     cy.get('svg[data-testid="CheckCircleIcon"]').should('exist'); // 이메일 유효 인증 마크
 
-    cy.get('.css-9rxtz0').click(); // 클래스를 사용하여 클릭
+    cy.get('.css-9rxtz0').click(); // 회원가입 클릭
     cy.url().should('include', '/members/account')
     cy.getCookie('eliceSessionKey').should('exist')
 
