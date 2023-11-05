@@ -12,14 +12,11 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.visit('/')
     cy.clearCookie('eliceSessionKey')
     cy.url().should('include', '/accounts/signin')
-
-   
-   cy.get('.e1t19hrb1 > .MuiTypography-root').click();    //  회원가입 클릭
+    cy.get('select[aria-label="Change Languages"]').select('ko');
+    cy.get('.e1t19hrb1 > .MuiTypography-root').click();    //  회원가입 클릭
   })
 
   it('회원 가입 페이지 로드, 기본 요소 랜더딩 확인 [체크박스 상태별 노출 확인] ', () => {
-
-    cy.get('select[aria-label="Change Languages"]').select('ko');
 
     // 체크박스 선택 및 해제 확인
 
@@ -72,21 +69,21 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('.MuiButtonBase-root').should('have.text', "보호자 동의하기");
 
 
-//     //[만 14세 이상 일때] ->  (1 보호자 문구 미노출 확인 , 2. 동의하기 버튼 문구 확인)
-//     cy.get('input[name="adult"]').check();
-//     cy.get('.MuiButtonBase-root').should('have.text', '동의하기');
+    //[만 14세 이상 일때] ->  (1 보호자 문구 미노출 확인 , 2. 동의하기 버튼 문구 확인)
+    cy.get('input[name="adult"]').check();
+    cy.get('.MuiButtonBase-root').should('have.text', "동의하기");
   });
 
 
-//   it('필수 약관 노출 확인 [이용약관 동의(필수)] , [개인정보 수집 및 이용에 관한 동의(필수)]', () => {
-//     cy.get('.MuiButtonBase-root').first().trigger('mouseover');
-//     // [자세히] 글씨가 노출 확인
-//     cy.get('button[aria-label="자세히"]').should('be.visible');
-//     cy.get(':nth-child(2) > .MuiIconButton-root').click();
-//     cy.get('button[type="button"]').contains('닫기').click();
-//     cy.get(':nth-child(3) > .MuiIconButton-root').click();
-//     cy.get('button[type="button"]').contains('닫기').click();
-//   });
+  it('필수 약관 노출 확인 [이용약관 동의(필수)] , [개인정보 수집 및 이용에 관한 동의(필수)]', () => {
+    cy.get('.MuiButtonBase-root').first().trigger('mouseover');
+    // [자세히] 글씨가 노출 확인
+    cy.get('button[aria-label="자세히"]').should('be.visible');
+    cy.get(':nth-child(2) > .MuiIconButton-root').click();
+    cy.get('button[type="button"]').contains('닫기').click();
+    // cy.get(':nth-child(3) > .MuiIconButton-root').click();
+    // cy.get('button[type="button"]').contains('닫기').click();
+  });
 
 
 //   it('만 14세 미만 [보호자 동의하기] 통신사 인증 노출 확인 ', () => {
