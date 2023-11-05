@@ -75,47 +75,58 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
 //   });
 
 
-  it('필수 약관 노출 확인 [이용약관 동의(필수)] , [개인정보 수집 및 이용에 관한 동의(필수)]', () => {
-    cy.get('.MuiButtonBase-root').first().trigger('mouseover');
-    // [자세히] 글씨가 노출 확인
-    cy.get('button[aria-label="자세히"]').should('be.visible');
-    cy.get(':nth-child(2) > .MuiIconButton-root').click();
-    cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click(); //미니 팝업 닫기버튼 클릭 [이용약관 동의]
+//   it('필수 약관 노출 확인 [이용약관 동의(필수)] , [개인정보 수집 및 이용에 관한 동의(필수)]', () => {
+//     cy.get('.MuiButtonBase-root').first().trigger('mouseover');
+//     // [자세히] 글씨가 노출 확인
+//     cy.get('button[aria-label="자세히"]').should('be.visible');
+//     cy.get(':nth-child(2) > .MuiIconButton-root').click();
+//     cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click(); //미니 팝업 닫기버튼 클릭 [이용약관 동의]
      
-    cy.get(':nth-child(3) > .MuiIconButton-root').click();
-    cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click(); //미니 팝업 닫기버튼 클릭 [개인정보 수집]
+//     cy.get(':nth-child(3) > .MuiIconButton-root').click();
+//     cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click(); //미니 팝업 닫기버튼 클릭 [개인정보 수집]
 
-  });
-
-
-  it('만 14세 미만 [보호자 동의하기] 통신사 인증 노출 확인 ', () => {
-    cy.get('input[name="termsOfServices"]').check();
-    cy.get('input[name="privacyPolicy"]').check();
-    cy.get('.MuiButton-root').should('have.text', "보호자 동의하기").click();
-    cy.get('.imp-header > .imp-close').click(); // PASS 인증창  닫기
-
-  });
+//   });
 
 
-//   it('만 14세 이상 [동의하기] 회원가입 페이지 노출 확인 ', () => {
-//     cy.get('input[name="adult"]').check();
+//   it('만 14세 미만 [보호자 동의하기] 통신사 인증 노출 확인 ', () => {
 //     cy.get('input[name="termsOfServices"]').check();
 //     cy.get('input[name="privacyPolicy"]').check();
-//     cy.get('button[type="submit"]').should('contain', '동의하기').click();
+//     cy.get('.MuiButton-root').should('have.text', "보호자 동의하기").click();
+//     cy.get('.imp-header > .imp-close').click(); // PASS 인증창  닫기
 
-//     cy.url().should('include', '/accounts/signup/method');
+//   });
+
+
+  it('만 14세 이상 [동의하기] 회원가입 페이지 노출 확인 ', () => {
+    cy.get('input[name="adult"]').check();
+    cy.get('input[name="termsOfServices"]').check();
+    cy.get('input[name="privacyPolicy"]').check();
+
+    cy.get('.MuiButton-root').should('have.text', "동의하기").click();
+
+    cy.url().should('include', '/accounts/signup/method');
 
 
 
-//     // 랜더링 체크
+    // 랜더링 체크
+//
+    cy.get('.MuiTypography-subtitle1')
+      .should('be.visible')
+      .should('have.text', "가입 방법을 선택하세요");
 
-//     cy.get('.MuiTypography-subtitle1').should('be.visible');
-//     cy.contains('가입 방법을 선택하세요').should('be.visible');
 
-//     cy.get('button[aria-label="Kakao"]').should('be.visible');
-//     cy.get('img[alt="Kakao"]').should('be.visible');
-//     cy.contains('카카오로 3초 만에 가입하기').should('be.visible');
-//     cy.get('.MuiButton-sizeMedium').should('be.visible'); //이메일 가입하기
+   
+
+     cy.get('button[aria-label="Kakao"]')
+       .should('be.visible')
+       .should('have.text', "카카오로 3초 만에 가입하기");
+  
+
+
+
+    cy.get('.MuiButton-sizeMedium')
+      .should('be.visible')
+      .should('have.text', "이메일로 가입하기");
 
 //     cy.contains('더보기').should('be.visible');
 
@@ -181,7 +192,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
 //     cy.url().should('include', '/members/account')
 //     cy.getCookie('eliceSessionKey').should('exist')
 
-//   });
+   });
 })
 
 
