@@ -146,11 +146,12 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="privacyPolicy"]').check();
     cy.get('.MuiButton-root').should('have.text', "동의하기").click();
     cy.url().should('include', '/accounts/signup/method');
-
     cy.get('.MuiButton-sizeMedium').should('have.text', "이메일로 가입하기").click();
 
 
-
+    cy.get('.css-8g8ihq')
+    .should('be.visible')
+    .should('have.text',"계정을 생성하세요")
 //     cy.contains('계정을 생성하세요').should('exist');
 
 
