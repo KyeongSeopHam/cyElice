@@ -14,8 +14,7 @@ describe('앱 로드가 정상적으로 되어야 한다.', () => {
 
 
   it('페이지 로드, 기본 요소 랜더딩 확인 ', () => {
-
-    cy.get('select[aria-label="Change Languages"]').select('ko');
+    cy.get('select[aria-label="Change Languages"]').select('ko');    // 깃액션에서 en으로 넘어와서 메소드실행전에 ko로 변경
     cy.checkPageLoadAndComponents(); // 페이지 로딩 및 컴포넌트 확인 
     cy.visit('/')
   })
