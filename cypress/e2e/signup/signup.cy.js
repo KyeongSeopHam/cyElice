@@ -171,35 +171,37 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     .should('include', '영문, 숫자, 특수문자를 조합하여 8자 이상으로 구성해주세요.');
   
 
- 
+
+     cy.get('input[name="password"]').type('weak'); // 유효하지 않은 비밀번호 입력
+
+    //  cy.wait(5000)   왜안되징
+    //  cy.get('.css-96owzn .MuiFormHelperText-root')
+    //  .should('be.visible')
+    //  .invoke('text')
+    //  .should('include', '비밀번호를 더 강력하게 만들어주세요! 영문, 숫자, 특수문자를 포함해 8자 이상으로 조합해보세요.');
+    
    
-  
-  
-  
 
 
-   
+     cy.get('input[name="password"]').clear();
 
-//     cy.get('input[name="password"]').type('weak'); // 유효하지 않은 비밀번호 입력
-//     cy.contains('비밀번호를 더 강력하게 만들어주세요! 영문, 숫자, 특수문자를 포함해 8자 이상으로 조합해보세요.').should('be.visible');
-
-//     cy.get('input[name="password"]').clear();
-
-//     cy.get('input[name="password"]').type('asdasda52#!%^^'); // 유효한 비밀번호 입력 1차 
-//     cy.get('input[name="confirmPassword"]').should('exist'); // 비밀번호 재확인 필드 노출 확인 
-//     cy.get('input[name="confirmPassword"]').type('asdasdasd@$2#$');
+    cy.get('input[name="password"]').type('asdasda52#!%^^'); // 유효한 비밀번호 입력 1차 
+    cy.get('input[name="confirmPassword"]').should('exist'); // 비밀번호 재확인 필드 노출 확인 
+    cy.get('input[name="confirmPassword"]').type('asdasdasd@$2#$');
 //     cy.contains('비밀번호가 일치하지 않습니다.').should('be.visible'); // 비번 일치하지않았을경우 문구 노출
-//     cy.get('input[name="confirmPassword"]').clear();
-//     cy.get('input[name="confirmPassword"]').type('asdasda52#!%^^');
-//     cy.get('button[aria-label="비밀번호 보기"]').click(); // 비밀번호 보기 버튼 클릭
-//     cy.get('button[aria-label="비밀번호 보기"]').click(); // 감추기? 명칭 
+    cy.get('input[name="confirmPassword"]').clear();
+    cy.get('input[name="confirmPassword"]').type('asdasda52#!%^^');
+    cy.get('button[aria-label="비밀번호 보기"]').click(); // 비밀번호 보기 버튼 클릭
+    cy.get('button[aria-label="비밀번호 보기"]').click(); // 감추기? 명칭 
 
-//     cy.get('input[name="loginId"]').clear();
-//     cy.get('input[name="loginId"]').type(generateRandomUsername()); // 난수로 계정 생성
-//     cy.get('svg[data-testid="CheckCircleIcon"]').should('exist'); // 이메일 유효 인증 마크
-//     cy.contains('회원가입').click()
-//     cy.url().should('include', '/members/account')
-//     cy.getCookie('eliceSessionKey').should('exist')
+    cy.get('input[name="loginId"]').clear();
+    cy.get('input[name="loginId"]').type(generateRandomUsername()); // 난수로 계정 생성
+    cy.get('svg[data-testid="CheckCircleIcon"]').should('exist'); // 이메일 유효 인증 마크
+    
+    cy.get('.css-9rxtz0').click(); // 클래스를 사용하여 클릭
+    cy.url().should('include', '/members/account')
+    cy.getCookie('eliceSessionKey').should('exist')
+
 
    });
 })
