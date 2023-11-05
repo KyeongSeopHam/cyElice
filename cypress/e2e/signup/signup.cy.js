@@ -80,22 +80,21 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     // [자세히] 글씨가 노출 확인
     cy.get('button[aria-label="자세히"]').should('be.visible');
     cy.get(':nth-child(2) > .MuiIconButton-root').click();
-    cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click();
-    
-   // cy.get('button[type="button"]').contains('닫기').click();  // 얘는되네? 
-  //  cy.get(':nth-child(3) > .MuiIconButton-root').click();
-  //  cy.get('.css-odfdx9 button[type="button"]').click();      //  .contains('닫기') ?
+    cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click(); //미니 팝업 닫기버튼 클릭 [이용약관 동의]
+     
+    cy.get(':nth-child(3) > .MuiIconButton-root').click();
+    cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click(); //미니 팝업 닫기버튼 클릭 [개인정보 수집]
 
   });
 
 
-//   it('만 14세 미만 [보호자 동의하기] 통신사 인증 노출 확인 ', () => {
-//     cy.get('input[name="termsOfServices"]').check();
-//     cy.get('input[name="privacyPolicy"]').check();
-//     cy.get('button[type="submit"]').should('contain', '보호자 동의하기').click();
-//     cy.get('.imp-close').click();
+  it('만 14세 미만 [보호자 동의하기] 통신사 인증 노출 확인 ', () => {
+    cy.get('input[name="termsOfServices"]').check();
+    cy.get('input[name="privacyPolicy"]').check();
+    cy.get('.MuiButton-root').should('have.text', "보호자 동의하기").click();
+    cy.get('.imp-close').click(); // PASS 인증창  닫기
 
-//   });
+  });
 
 
 //   it('만 14세 이상 [동의하기] 회원가입 페이지 노출 확인 ', () => {
