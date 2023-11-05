@@ -9,6 +9,7 @@ function generateRandomUsername() {
 
 describe('회원가입이 정상적으로 되어야 한다.', () => {
   beforeEach(() => {
+    
     cy.visit('/')
     cy.clearCookie('eliceSessionKey')
     cy.url().should('include', '/accounts/signin')
