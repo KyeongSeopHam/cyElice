@@ -81,7 +81,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('button[aria-label="자세히"]').should('be.visible');
     cy.get(':nth-child(2) > .MuiIconButton-root').click();
     cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click(); //미니 팝업 닫기버튼 클릭 [이용약관 동의]
-     
+
     cy.get(':nth-child(3) > .MuiIconButton-root').click();
     cy.get('.MuiDialogActions-root > .MuiButtonBase-root').click(); //미니 팝업 닫기버튼 클릭 [개인정보 수집]
 
@@ -114,29 +114,29 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
       .should('be.visible')
       .should('have.text', "가입 방법을 선택하세요");
 
-     cy.get('button[aria-label="Kakao"]')
-       .should('be.visible')
-       .should('have.text', "카카오로 3초 만에 가입하기");
-  
+    cy.get('button[aria-label="Kakao"]')
+      .should('be.visible')
+      .should('have.text', "카카오로 3초 만에 가입하기");
+
     cy.get('.MuiButton-sizeMedium')
       .should('be.visible')
       .should('have.text', "이메일로 가입하기");
-      
+
     // 더보기 영역 [추가 SNS 로그인 6종]
     cy.get('.css-1n4x2a0 > .MuiTypography-root')
       .should('be.visible')
 
-      cy.get('.css-3smlhm').should('be.visible').should('have.text',"이미 계정이 있으신가요?로그인하기");
-   
-
-      cy.get('.css-3smlhm > .MuiTypography-root').should('be.visible'); // 로그인하기 영역
+    cy.get('.css-3smlhm').should('be.visible').should('have.text', "이미 계정이 있으신가요?로그인하기");
 
 
+    cy.get('.css-3smlhm > .MuiTypography-root').should('be.visible'); // 로그인하기 영역
 
-      cy.get('.css-1n4x2a0 > .MuiTypography-root').click(); // 더보기 클릭
+
+
+    cy.get('.css-1n4x2a0 > .MuiTypography-root').click(); // 더보기 클릭
 
     // 추가 SNS 로그인 6종 [함수화]
-   // cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
+    cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
   })
 
@@ -151,44 +151,45 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
 
 
     cy.get('.css-8g8ihq')
-    .should('be.visible')
-    .should('have.text',"계정을 생성하세요")
+      .should('be.visible')
+      .should('have.text', "계정을 생성하세요")
 
 
     cy.get('form[data-cy="signin-form"]').should('be.visible');
     cy.get('input[name="fullname"]').type('경섭');
     cy.get('input[name="loginId"]').type('rudtjq2323@'); // 유효하지 않는 이메일 형식 입력
-    cy.get('#mui-10-helper-text').should('be.visible').should('have.text',"이메일 주소가 올바르지 않습니다.");
+    cy.get('#mui-10-helper-text').should('be.visible').should('have.text', "이메일 주소가 올바르지 않습니다.");
     cy.get('input[name="loginId"]').clear();
 
     cy.get('input[name="loginId"]').type('rudtjq5724@naver.com'); // 이미 가입된 이메일 주소 입력
-    
+
 
 
     cy.get('.css-120w4o3.MuiFormHelperText-root')
-    .should('be.visible')
-    .invoke('text')
-    .should('include', '영문, 숫자, 특수문자를 조합하여 8자 이상으로 구성해주세요.');
-  
-
-
-     cy.get('input[name="password"]').type('weak'); // 유효하지 않은 비밀번호 입력
-     
-     cy.get('.css-96owzn.MuiFormHelperText-root')
-       .should('be.visible').invoke('text')
-       .should('include',"비밀번호를 더 강력하게 만들어주세요! 영문, 숫자, 특수문자를 포함해 8자 이상으로 조합해보세요.");
-    
+      .should('be.visible')
+      .invoke('text')
+      .should('include', '영문, 숫자, 특수문자를 조합하여 8자 이상으로 구성해주세요.');
 
 
 
-     cy.get('input[name="password"]').clear();
+    cy.get('input[name="password"]').type('weak'); // 유효하지 않은 비밀번호 입력
+
+
+
+    cy.get('.MuiFormHelperText-root.Mui-error') // 2개 클래스 이름을 조합해 선택
+      .should('be.visible')
+      .invoke('text')
+      .should('include', '비밀번호를 더 강력하게 만들어주세요! 영문, 숫자, 특수문자를 포함해 8자 이상으로 조합해보세요.');
+
+
+    cy.get('input[name="password"]').clear();
 
     cy.get('input[name="password"]').type('asdasda52#!%^^'); // 유효한 비밀번호 입력 1차 
     cy.get('input[name="confirmPassword"]').should('exist'); // 비밀번호 재확인 필드 노출 확인 
     cy.get('input[name="confirmPassword"]').type('asdasdasd@$2#$');
-    cy.get('#mui-13-helper-text').should('be.visible').should('have.text',"비밀번호가 일치하지 않습니다."); // ??????? #mui-13-helper-text
+    cy.get('#mui-13-helper-text').should('be.visible').should('have.text', "비밀번호가 일치하지 않습니다."); // ??????? #mui-13-helper-text
 
-   
+
     cy.get('input[name="confirmPassword"]').clear();
     cy.get('input[name="confirmPassword"]').type('asdasda52#!%^^');
     cy.get('button[aria-label="비밀번호 보기"]').click(); // 비밀번호 보기 버튼 클릭
@@ -197,13 +198,13 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="loginId"]').clear();
     cy.get('input[name="loginId"]').type(generateRandomUsername()); // 난수로 계정 생성
     cy.get('svg[data-testid="CheckCircleIcon"]').should('exist'); // 이메일 유효 인증 마크
-    
+
     cy.get('.css-9rxtz0').click(); // 클래스를 사용하여 클릭
     cy.url().should('include', '/members/account')
     cy.getCookie('eliceSessionKey').should('exist')
 
 
-   });
+  });
 })
 
 

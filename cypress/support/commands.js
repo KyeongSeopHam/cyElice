@@ -1,8 +1,8 @@
 // 로그인[이메일,패스워드] 필드 추가 -> 로그인시도 
 Cypress.Commands.add('login', (email, pw) => {
-    cy.get('input[name="loginId"]').type(email)
-    cy.get('input[name="password"]').type(pw)
-    cy.get('button[type="submit"]').click()
+  cy.get('input[name="loginId"]').type(email)
+  cy.get('input[name="password"]').type(pw)
+  cy.get('button[type="submit"]').click()
 });
 
 // 로그인 방법중  SNS 6종 로그인
@@ -32,18 +32,17 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 
   cy.get('button[type="submit"]').should('be.visible')
 
- //cy.get('button[type="button"]').contains("카카오로 로그인").should('be.visible')
   cy.get('[aria-label="Kakao"] > .MuiTypography-root').should('be.visible')
   cy.get('[aria-label="Google"] > .MuiTypography-root').should('be.visible')
   cy.get('.css-1n4x2a0 > .MuiTypography-root').should('be.visible').click(); // 더보기 영역 [추가 SNS 로그인 6종]
 
 
   //  추가 SNS 로그인 6종 [함수화]
-   cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
+  cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
   //  회원가입 클릭
-   cy.get('.e1t19hrb1 > .MuiTypography-root').click(); 
-  
+  cy.get('.e1t19hrb1 > .MuiTypography-root').click();
+
 
 });
 
