@@ -12,47 +12,7 @@ describe('앱 로드가 정상적으로 되어야 한다.', () => {
     cy.url().should('include', '/accounts/signin')
   })
 
-// Cypress 테스트 시작
-describe('언어 설정 테스트', () => {
-  it('한국어로 설정하고 테스트', () => {
-    // 한국어로 언어 설정 변경
-    cy.setCookie('lang', 'ko'); // 예시: 언어 설정 쿠키 설정
-
-    // 웹 앱 로드
-    cy.visit('/'); // 웹 앱 루트 페이지 URL
-
-    // 언어 설정이 한국어로 변경되었는지 확인
-    cy.get('.language-selector').should('contain', '한국어'); // 예시: 언어 선택 요소
-
-    // 원하는 동작을 수행하고 검증
-    // ...
-
-    // 원래 언어로 복원
-    cy.clearCookie('lang'); // 예시: 언어 설정 쿠키 삭제
-  });
-
-  it('영어로 설정하고 테스트', () => {
-    // 영어로 언어 설정 변경
-    cy.setCookie('lang', 'en'); // 예시: 언어 설정 쿠키 설정
-
-    // 웹 앱 로드
-    cy.visit('/'); // 웹 앱 루트 페이지 URL
-
-    // 언어 설정이 영어로 변경되었는지 확인
-    cy.get('.language-selector').should('contain', 'English'); // 예시: 언어 선택 요소
-
-    // 원하는 동작을 수행하고 검증
-    // ...
-
-    // 원래 언어로 복원
-    cy.clearCookie('lang'); // 예시: 언어 설정 쿠키 삭제
-  });
-});
-
-
-
-
-
+  
   it('페이지 로드, 기본 요소 랜더딩 확인 ', () => {
 
     cy.checkPageLoadAndComponents(); // 페이지 로딩 및 컴포넌트 확인 

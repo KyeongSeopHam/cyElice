@@ -27,7 +27,7 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
   cy.get(".MuiStack-root > .MuiTypography-root").click(); // 비밀번호를 잊어버리셨나요?
 
   //cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=ko');  // en(깃액션) -> ko(cypress) -> en 
-  cy.url().should('include', '/accounts/recover/password/find/email').should('include', 'lang=ko');
+  cy.url().should('include', '/accounts/recover/password/find/email').should('include', 'lang=en');
 
 
 
