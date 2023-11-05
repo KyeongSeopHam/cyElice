@@ -139,11 +139,11 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
 
-//   it('회원 가입 완료 확인 (이메일로 가입, Validation)', () => {
+  it('회원 가입 완료 확인 (이메일로 가입, Validation)', () => {
 
-//     cy.get('input[name="adult"]').check();
-//     cy.get('input[name="termsOfServices"]').check();
-//     cy.get('input[name="privacyPolicy"]').check();
+    cy.get('input[name="adult"]').check();
+    cy.get('input[name="termsOfServices"]').check();
+    cy.get('input[name="privacyPolicy"]').check();
 //     cy.get('button[type="submit"]').should('contain', '동의하기').click();
 //     cy.url().should('include', '/accounts/signup/method');
 //     cy.contains("이메일로 가입하기").click();
@@ -190,4 +190,4 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
    });
 })
 
-
+})
