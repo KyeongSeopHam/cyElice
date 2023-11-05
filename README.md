@@ -2,7 +2,7 @@
 ```bash
 # 노드 모듈 패키지 설치 방법 (.gitignore 해서 node_modules 푸시 안되게 설정)
 
-npm init # node.js 가 설치되어 있어야 합니다.
+npm init # node.js 가 설치되어 있어야 합니다. (저는 홈페이지에서 설치)
 npm install cypress --save-dev # 싸이프레스 설치
 ```
 

@@ -1,14 +1,17 @@
-
 {
-  "scripts": {  
+  "scripts": {
     "build": "rollup -c",
     "start": "http-server",
-    "test" : "cypress run",
+    "test": "cypress run",
     "cy:open": "cypress open"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^13.3.0"
+  "name": "cyelice",
+  "description": "```bash\r # 노드 모듈 패키지 설치 방법 (.gitignore 해서 node_modules 푸시 안되게 설정)",
+  "version": "1.0.0",
+  "main": "cypress.config.js",
+  "devDependencies": {
+    "cypress": "^13.4.0"
   }
 }
