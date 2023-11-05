@@ -188,7 +188,14 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="password"]').type('asdasda52#!%^^'); // 유효한 비밀번호 입력 1차 
     cy.get('input[name="confirmPassword"]').should('exist'); // 비밀번호 재확인 필드 노출 확인 
     cy.get('input[name="confirmPassword"]').type('asdasdasd@$2#$');
-//     cy.contains('비밀번호가 일치하지 않습니다.').should('be.visible'); // 비번 일치하지않았을경우 문구 노출
+    cy.get('#mui-13-helper-text').should('be.visible').should('have.text',"비밀번호가 일치하지 않습니다."); // ★
+
+    cy.get('[data-layer="Content"]')
+
+
+
+
+
     cy.get('input[name="confirmPassword"]').clear();
     cy.get('input[name="confirmPassword"]').type('asdasda52#!%^^');
     cy.get('button[aria-label="비밀번호 보기"]').click(); // 비밀번호 보기 버튼 클릭
