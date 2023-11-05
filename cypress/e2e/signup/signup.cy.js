@@ -19,7 +19,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
 
   it('회원 가입 페이지 로드, 기본 요소 랜더딩 확인 [체크박스 상태별 노출 확인] ', () => {
 
-
+    cy.get('select[aria-label="Change Languages"]').select('ko');
 
     // 체크박스 선택 및 해제 확인
 
