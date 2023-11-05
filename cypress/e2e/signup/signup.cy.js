@@ -17,24 +17,24 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
    cy.get('.e1t19hrb1 > .MuiTypography-root').click();    //  회원가입 클릭
   })
 
-//   it('회원 가입 페이지 로드, 기본 요소 랜더딩 확인 [체크박스 상태별 노출 확인] ', () => {
+  it('회원 가입 페이지 로드, 기본 요소 랜더딩 확인 [체크박스 상태별 노출 확인] ', () => {
 
 
 
-//     // 체크박스 선택 및 해제 확인
+    // 체크박스 선택 및 해제 확인
 
 
-//     // 만 14세 이상 체크박스
-//     cy.get('input[name="adult"]').click();
-//     cy.get('input[name="adult"]').should('be.checked');
-//     cy.get('input[name="adult"]').click();
-//     cy.get('input[name="adult"]').should('not.be.checked');
+    // 만 14세 이상 체크박스
+    cy.get('input[name="adult"]').click();
+    cy.get('input[name="adult"]').should('be.checked');
+    cy.get('input[name="adult"]').click();
+    cy.get('input[name="adult"]').should('not.be.checked');
 
-//     // 이용약관 동의(필수) 체크박스
-//     cy.get('input[name="termsOfServices"]').click();
-//     cy.get('input[name="termsOfServices"]').should('be.checked');
-//     cy.get('input[name="termsOfServices"]').click();
-//     cy.get('input[name="termsOfServices"]').should('not.be.checked');
+    // 이용약관 동의(필수) 체크박스
+    cy.get('input[name="termsOfServices"]').click();
+    cy.get('input[name="termsOfServices"]').should('be.checked');
+    cy.get('input[name="termsOfServices"]').click();
+    cy.get('input[name="termsOfServices"]').should('not.be.checked');
 
 //     // 개인정보 관련 체크박스
 //     cy.get('input[name="privacyPolicy"]').click();
@@ -75,7 +75,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
 //     //[만 14세 이상 일때] ->  (1 보호자 문구 미노출 확인 , 2. 동의하기 버튼 문구 확인)
 //     cy.get('input[name="adult"]').check();
 //     cy.get('.MuiButtonBase-root').should('have.text', '동의하기');
-//   });
+  });
 
 
 //   it('필수 약관 노출 확인 [이용약관 동의(필수)] , [개인정보 수집 및 이용에 관한 동의(필수)]', () => {
