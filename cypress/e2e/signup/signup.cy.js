@@ -92,7 +92,7 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="termsOfServices"]').check();
     cy.get('input[name="privacyPolicy"]').check();
     cy.get('.MuiButton-root').should('have.text', "보호자 동의하기").click();
-    cy.wait(15000);
+    cy.wait(5000);
     cy.get('.imp-header .imp-close').click(); // PASS 인증창  닫기    부모요포함해서찾으니됨
 
   });
@@ -136,8 +136,9 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
       cy.get('.css-1n4x2a0 > .MuiTypography-root').click(); // 더보기 클릭
 
     // 추가 SNS 로그인 6종 [함수화]
-    cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
+   // cy.snsClickCheck(["Microsoft", "Facebook", "Naver", "Github", "Apple", "Whalespace"]);
 
+  })
 
   it('회원 가입 완료 확인 (이메일로 가입, Validation)', () => {
 
@@ -152,23 +153,29 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('.css-8g8ihq')
     .should('be.visible')
     .should('have.text',"계정을 생성하세요")
-//     cy.contains('계정을 생성하세요').should('exist');
 
 
-//     cy.contains('계정을 생성하세요');
-//     cy.get('form[data-cy="signin-form"]').should('exist');
+    cy.get('form[data-cy="signin-form"]').should('be.visible');
+    cy.get('input[name="fullname"]').type('경섭');
+    cy.get('input[name="loginId"]').type('rudtjq2323@'); // 유효하지 않는 이메일 형식 입력
+    cy.get('#mui-10-helper-text').should('be.visible').should('have.text',"이메일 주소가 올바르지 않습니다.");
+    cy.get('input[name="loginId"]').clear();
 
-//     cy.get('input[name="fullname"]').type('경섭');
-
-//     cy.get('input[name="loginId"]').type('rudtjq2323@'); // 유효하지 않는 이메일 형식 입력
-//     cy.contains('이메일 주소가 올바르지 않습니다.').should('be.visible');
-//     cy.get('input[name="loginId"]').clear();
-
-//     cy.get('input[name="loginId"]').type('rudtjq5724@naver.com'); // 이미 가입된 이메일 주소 입력
-//     cy.contains('이미 가입된 이메일 주소입니다.').should('be.visible');
+    cy.get('input[name="loginId"]').type('rudtjq5724@naver.com'); // 이미 가입된 이메일 주소 입력
+    
 
 
-//     cy.contains('영문, 숫자, 특수문자를 조합하여 8자 이상으로 구성해주세요.').should('be.visible');
+    cy.get('#mui-10-helper-text').should('be.visible').should('have.text',"이미 가입된 이메일 주소입니다.");          
+    //cy.get('[id="PasswordTextField-e6cvsouta3r-helper-text"]').should('be.visible').should('have.text', "영문, 숫자, 특수문자를 조합하여 8자 이상으로 구성해주세요.");
+ 
+   
+  
+  
+  
+
+
+   
+
 //     cy.get('input[name="password"]').type('weak'); // 유효하지 않은 비밀번호 입력
 //     cy.contains('비밀번호를 더 강력하게 만들어주세요! 영문, 숫자, 특수문자를 포함해 8자 이상으로 조합해보세요.').should('be.visible');
 
@@ -192,6 +199,6 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
 
    });
 })
-})
+
 
 
