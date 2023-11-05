@@ -36,27 +36,27 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="termsOfServices"]').click();
     cy.get('input[name="termsOfServices"]').should('not.be.checked');
 
-//     // 개인정보 관련 체크박스
-//     cy.get('input[name="privacyPolicy"]').click();
-//     cy.get('input[name="privacyPolicy"]').should('be.checked');
-//     cy.get('input[name="privacyPolicy"]').click();
-//     cy.get('input[name="privacyPolicy"]').should('not.be.checked');
+    // 개인정보 관련 체크박스
+    cy.get('input[name="privacyPolicy"]').click();
+    cy.get('input[name="privacyPolicy"]').should('be.checked');
+    cy.get('input[name="privacyPolicy"]').click();
+    cy.get('input[name="privacyPolicy"]').should('not.be.checked');
 
-//     // 광고 전송 동의 체크박스
-//     cy.get('input[name="promotion"]').click();
-//     cy.get('input[name="promotion"]').should('be.checked');
-//     cy.get('input[name="promotion"]').click();
-//     cy.get('input[name="promotion"]').should('not.be.checked');
+    // 광고 전송 동의 체크박스
+    cy.get('input[name="promotion"]').click();
+    cy.get('input[name="promotion"]').should('be.checked');
+    cy.get('input[name="promotion"]').click();
+    cy.get('input[name="promotion"]').should('not.be.checked');
 
-//     // 전부체크
-//     cy.get('input[name="adult"]').click();
-//     cy.get('input[name="adult"]').should('be.checked');
-//     cy.get('input[name="termsOfServices"]').click();
-//     cy.get('input[name="termsOfServices"]').should('be.checked');
-//     cy.get('input[name="privacyPolicy"]').click();
-//     cy.get('input[name="privacyPolicy"]').should('be.checked');
-//     cy.get('input[name="promotion"]').click();
-//     cy.get('input[name="promotion"]').should('be.checked');
+    // 전부체크
+    cy.get('input[name="adult"]').click();
+    cy.get('input[name="adult"]').should('be.checked');
+    cy.get('input[name="termsOfServices"]').click();
+    cy.get('input[name="termsOfServices"]').should('be.checked');
+    cy.get('input[name="privacyPolicy"]').click();
+    cy.get('input[name="privacyPolicy"]').should('be.checked');
+    cy.get('input[name="promotion"]').click();
+    cy.get('input[name="promotion"]').should('be.checked');
 
 
 //     cy.get('input[type="checkbox"]:checked').each(($checkbox) => {
