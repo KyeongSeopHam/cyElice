@@ -4,24 +4,27 @@ on:
   push: 
   schedule:
     - cron: '0 0 * * *' # 매일 자정에 실행하도록 설정
+
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
 
+    env:  # 환경 변수 설정
+      lang: ko_KR.UTF-8
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v2 # 최신 버전으로 업데이트
-
+        uses: actions/checkout@v2
 
       - name: Set locale to ko_KR
         run: |
-          sudo locale-gen ko_KR.UTF-8
-          export LC_ALL="ko_KR.UTF-8"
+          sudo locale-gen ${{ env.lang }}
+          export LC_ALL=${{ env.lang }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2 # 최신 버전으로 업데이트
+        uses: actions/setup-node@v2
         with:
-          node-version: '16.x' # 명시적으로 노드 16 버전을 사용
+          node-version: '16.x'
 
       - name: Install Dependencies
         run: |
