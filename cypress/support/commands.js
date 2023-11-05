@@ -20,17 +20,13 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
     .should('be.visible');
 
   // 컴포넌트 확인 (주요 버튼)
-  cy.get('input[name="loginId"]').should('be.visible')
-  cy.get('input[name="password"]').should('be.visible')
+  cy.get('input[name="loginId"]').should('be.visible') // 아이디
+  cy.get('input[name="password"]').should('be.visible') // 비번
 
   // cy.contains('비밀번호를 잊어버리셨나요?').click();
-  cy.get(".MuiStack-root > .MuiTypography-root").click();
+  cy.get(".MuiStack-root > .MuiTypography-root").click(); // 비밀번호를 잊어버리셨나요?
 
-
-  
-  
-
-  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=en');  // en(깃액션) -> ko(cypress) -> en
+  cy.url().should('include', '/accounts/recover/password/find/email?continue_to=https%3A%2F%2Faccounts.elice.io%2F&lang=en');  // en(깃액션) -> ko(cypress) -> en 
 
   cy.visit('/')
 
@@ -54,9 +50,6 @@ Cypress.Commands.add('checkPageLoadAndComponents', () => {
 
 // [Footer] 페이지 언어 선택 전환 컴포넌트 검증 -> 추후 확장성 언어추가 고려   
 Cypress.Commands.add('languageSwitchTest', () => {
-
-
-
   cy.get('select[aria-label="Change Languages"]').select('en');
   cy.get('.e1t19hrb0').should('have.text', "Don\'t have an account yet?Sign up");
   cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'en');  // 현재요소가 영어인지 확인
@@ -64,5 +57,4 @@ Cypress.Commands.add('languageSwitchTest', () => {
   cy.get('select[aria-label="Change Languages"]').select('ko');
   cy.get('.e1t19hrb1').should('have.text', "아직 계정이 없으신가요?회원가입");
   cy.get('select[aria-label="Change Languages"]').should('exist').should('have.value', 'ko'); // 현재요소가 한글인지 확인
-
 });

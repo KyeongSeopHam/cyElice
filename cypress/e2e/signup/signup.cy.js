@@ -1,80 +1,81 @@
-// import '../../support/commands'
+import '../../support/commands'
 
-// function generateRandomUsername() {
-//   const randomPart = Math.floor(Math.random() * 10000); // 난수로 회원가입 계정 반복
-//   return `rudtjq${randomPart}@naverr.com`;
-// }
+function generateRandomUsername() {
+  const randomPart = Math.floor(Math.random() * 10000); // 난수로 회원가입 계정 반복
+  return `rudtjq${randomPart}@naverr.com`;
+}
 
-// //회원가입 페이지 테스트.
+//회원가입 페이지 테스트.
 
-// describe('회원가입이 정상적으로 되어야 한다.', () => {
-//   beforeEach(() => {
-//     cy.visit('/')
-//     cy.clearCookie('eliceSessionKey')
-//     cy.url().should('include', '/accounts/signin')
+describe('회원가입이 정상적으로 되어야 한다.', () => {
+  beforeEach(() => {
+    cy.visit('/')
+    cy.clearCookie('eliceSessionKey')
+    cy.url().should('include', '/accounts/signin')
 
-//     cy.contains('회원가입').click();
-//   })
+   
+   cy.get('.e1t19hrb1 > .MuiTypography-root').click();    //  회원가입 클릭
+  })
 
-//   it('회원 가입 페이지 로드, 기본 요소 랜더딩 확인 [체크박스 상태별 노출 확인] ', () => {
-
-
-
-//     // 체크박스 선택 및 해제 확인
+  it('회원 가입 페이지 로드, 기본 요소 랜더딩 확인 [체크박스 상태별 노출 확인] ', () => {
 
 
-//     // 만 14세 이상 체크박스
-//     cy.get('input[name="adult"]').click();
-//     cy.get('input[name="adult"]').should('be.checked');
-//     cy.get('input[name="adult"]').click();
-//     cy.get('input[name="adult"]').should('not.be.checked');
 
-//     // 이용약관 동의(필수) 체크박스
-//     cy.get('input[name="termsOfServices"]').click();
-//     cy.get('input[name="termsOfServices"]').should('be.checked');
-//     cy.get('input[name="termsOfServices"]').click();
-//     cy.get('input[name="termsOfServices"]').should('not.be.checked');
-
-//     // 개인정보 관련 체크박스
-//     cy.get('input[name="privacyPolicy"]').click();
-//     cy.get('input[name="privacyPolicy"]').should('be.checked');
-//     cy.get('input[name="privacyPolicy"]').click();
-//     cy.get('input[name="privacyPolicy"]').should('not.be.checked');
-
-//     // 광고 전송 동의 체크박스
-//     cy.get('input[name="promotion"]').click();
-//     cy.get('input[name="promotion"]').should('be.checked');
-//     cy.get('input[name="promotion"]').click();
-//     cy.get('input[name="promotion"]').should('not.be.checked');
-
-//     // 전부체크
-//     cy.get('input[name="adult"]').click();
-//     cy.get('input[name="adult"]').should('be.checked');
-//     cy.get('input[name="termsOfServices"]').click();
-//     cy.get('input[name="termsOfServices"]').should('be.checked');
-//     cy.get('input[name="privacyPolicy"]').click();
-//     cy.get('input[name="privacyPolicy"]').should('be.checked');
-//     cy.get('input[name="promotion"]').click();
-//     cy.get('input[name="promotion"]').should('be.checked');
+    // 체크박스 선택 및 해제 확인
 
 
-//     cy.get('input[type="checkbox"]:checked').each(($checkbox) => {
-//       cy.wrap($checkbox).uncheck();
-//     });
+    // 만 14세 이상 체크박스
+    cy.get('input[name="adult"]').click();
+    cy.get('input[name="adult"]').should('be.checked');
+    cy.get('input[name="adult"]').click();
+    cy.get('input[name="adult"]').should('not.be.checked');
 
-//     // [만 14세 미만 일때] -> (1.보호자 문구 확인, 2. 보호자동의하기 버튼문구확인 )
-//     cy.get('input[name="adult"]').should('not.be.checked');
-//     cy.get('input[name="termsOfServices"]').check();
-//     cy.get('input[name="privacyPolicy"]').check();
-//     cy.get('span.MuiTypography-caption').should('be.visible');
-//     cy.get('input[name="adult"]').should('not.be.checked');
-//     cy.get('button[type="submit"]').should('contain', '보호자 동의하기');
+    // 이용약관 동의(필수) 체크박스
+    cy.get('input[name="termsOfServices"]').click();
+    cy.get('input[name="termsOfServices"]').should('be.checked');
+    cy.get('input[name="termsOfServices"]').click();
+    cy.get('input[name="termsOfServices"]').should('not.be.checked');
+
+    // 개인정보 관련 체크박스
+    cy.get('input[name="privacyPolicy"]').click();
+    cy.get('input[name="privacyPolicy"]').should('be.checked');
+    cy.get('input[name="privacyPolicy"]').click();
+    cy.get('input[name="privacyPolicy"]').should('not.be.checked');
+
+    // 광고 전송 동의 체크박스
+    cy.get('input[name="promotion"]').click();
+    cy.get('input[name="promotion"]').should('be.checked');
+    cy.get('input[name="promotion"]').click();
+    cy.get('input[name="promotion"]').should('not.be.checked');
+
+    // 전부체크
+    cy.get('input[name="adult"]').click();
+    cy.get('input[name="adult"]').should('be.checked');
+    cy.get('input[name="termsOfServices"]').click();
+    cy.get('input[name="termsOfServices"]').should('be.checked');
+    cy.get('input[name="privacyPolicy"]').click();
+    cy.get('input[name="privacyPolicy"]').should('be.checked');
+    cy.get('input[name="promotion"]').click();
+    cy.get('input[name="promotion"]').should('be.checked');
 
 
-//     // [만 14세 이상 일때] ->  (1 보호자 문구 미노출 확인 , 2. 동의하기 버튼 문구 확인)
-//     cy.get('input[name="adult"]').check();
-//     cy.get('button[type="submit"]').should('contain', '동의하기');
-//   });
+    cy.get('input[type="checkbox"]:checked').each(($checkbox) => {
+      cy.wrap($checkbox).uncheck();
+    });
+
+    // [만 14세 미만 일때] -> (1.보호자 문구 확인, 2. 보호자동의하기 버튼문구확인 )
+    cy.get('input[name="adult"]').should('not.be.checked');
+    cy.get('input[name="termsOfServices"]').check();
+    cy.get('input[name="privacyPolicy"]').check();
+    cy.get('span.MuiTypography-caption').should('be.visible');
+    cy.get('input[name="adult"]').should('not.be.checked');
+    cy.get('.MuiButtonBase-root').should('have.text', '보호자 동의하기');
+
+
+    //[만 14세 이상 일때] ->  (1 보호자 문구 미노출 확인 , 2. 동의하기 버튼 문구 확인)
+    cy.get('input[name="adult"]').check();
+    cy.get('.MuiButtonBase-root').should('have.text', '동의하기');
+  });
 
 
 //   it('필수 약관 노출 확인 [이용약관 동의(필수)] , [개인정보 수집 및 이용에 관한 동의(필수)]', () => {
@@ -182,6 +183,6 @@
 //     cy.getCookie('eliceSessionKey').should('exist')
 
 //   });
-// })
+})
 
 
