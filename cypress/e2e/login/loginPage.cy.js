@@ -4,6 +4,7 @@ import '../../support/commands'
 
 describe('앱 로드가 정상적으로 되어야 한다.', () => {
   beforeEach(() => {
+    cy.setCookie('lang', 'ko');
     cy.visit('/') //실행전 루트방문 init->commands
   })
 
