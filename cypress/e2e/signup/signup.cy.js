@@ -165,8 +165,12 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     
 
 
-    cy.get('#mui-10-helper-text').should('be.visible').should('have.text',"이미 가입된 이메일 주소입니다.");          
-    //cy.get('[id="PasswordTextField-e6cvsouta3r-helper-text"]').should('be.visible').should('have.text', "영문, 숫자, 특수문자를 조합하여 8자 이상으로 구성해주세요.");
+    cy.get('.css-120w4o3.MuiFormHelperText-root')
+    .should('be.visible')
+    .invoke('text')
+    .should('include', '영문, 숫자, 특수문자를 조합하여 8자 이상으로 구성해주세요.');
+  
+
  
    
   
