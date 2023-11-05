@@ -144,9 +144,11 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="adult"]').check();
     cy.get('input[name="termsOfServices"]').check();
     cy.get('input[name="privacyPolicy"]').check();
-//     cy.get('button[type="submit"]').should('contain', '동의하기').click();
-//     cy.url().should('include', '/accounts/signup/method');
-//     cy.contains("이메일로 가입하기").click();
+    cy.get('.MuiButton-root').should('have.text', "동의하기").click();
+    cy.url().should('include', '/accounts/signup/method');
+
+    cy.get('.MuiButton-sizeMedium').should('have.text', "이메일로 가입하기").click();
+
 
 
 //     cy.contains('계정을 생성하세요').should('exist');
