@@ -190,7 +190,6 @@ describe('회원가입이 정상적으로 되어야 한다.', () => {
     cy.get('input[name="confirmPassword"]').type('asdasdasd@$2#$');
     cy.get('#mui-13-helper-text').should('be.visible').should('have.text', "비밀번호가 일치하지 않습니다."); // ??????? #mui-13-helper-text
 
-
     cy.get('input[name="confirmPassword"]').clear();
     cy.get('input[name="confirmPassword"]').type('asdasda52#!%^^');
     cy.get('button[aria-label="비밀번호 보기"]').click(); // 비밀번호 보기 버튼 클릭
